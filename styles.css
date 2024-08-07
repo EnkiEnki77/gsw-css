@@ -1,0 +1,101 @@
+/* A pseudo-class that targets the root of the document regardless of document type. Also has a higher specificity than
+element selectors considering its a pseudo-class */
+:root {
+  --black: #171321;
+  --dkblue: #0d314b;
+  --plum: #4b0d49;
+  --hotmag: #ff17e4;
+  --magenta: #e310cb;
+  --aqua: #86fbfb;
+  --white: #fff;
+  --font-size: 1.3rem;
+  --mono: "Oxygen Mono", monospace;
+  --sans: "Oxygen", sans-serif;
+}
+
+/* When starting a project always set box-sizing to border-box and remove margin and padding from the body. */
+
+/* This is the the best practice for setting box-sizing. If you are utilizing something designed for a different box-sizing
+This allows you to set it to that box-sizing and have its children inherit that instead of being forced into border-box by
+the universal selector. It makes things inherit from the closest parent you specify a value on instead of forcing everything
+to a specific value. */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  /* If a property is not inherited by default but you want it to be for an element use the value inherit. */
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  font-family: var(--sans);
+  background-color: var(--black);
+  color: #fff;
+  font-size: var(--font-size);
+}
+
+body,
+h1,
+h2,
+h3 {
+  /* Margin top and bottoms collapse, if you have a heading with 1rem and a p with 1rem of margin touching eachother
+    It wont result in 2rem's of space they collapse into being 1rem. If you have two margins of different size the bigger
+    one wins. */
+  margin: 0;
+}
+
+a {
+  color: var(--magenta);
+}
+
+a:hover {
+  color: var(--hotmag);
+  /* When you have links in text, the accessible thing to do is have an underline to denote its a link. 10% of the population
+    are color blind. You can remove it on hover though. */
+  text-decoration: none;
+}
+
+#intro {
+  padding: 0 4rem 10rem 4rem;
+}
+
+#intro p {
+  font-size: 1rem;
+  /* line height uses a number without a unit, this represents a proportion of the elements font-size. */
+  line-height: 1.5;
+}
+
+.name {
+  font-family: var(--mono);
+}
+
+.name span {
+  font-family: var(--sans);
+  font-size: 4rem;
+  color: var(--aqua);
+  /* If you need to put a span on its own line for visual purposes use this. */
+  display: block;
+}
+
+#intro h2 {
+  font-size: 4rem;
+  font-weight: normal;
+}
+
+#contact {
+  padding: 5rem 4rem;
+  text-align: center;
+  background-color: var(--plum);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#contact p {
+  max-width: 25%;
+}
